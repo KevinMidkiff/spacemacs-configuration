@@ -289,6 +289,20 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
+(defun indent-setup (n)
+  ;; java/c/c++
+  (setq c-basic-offset n)
+  ;; web development
+  (setq coffee-tab-width n) ; coffeescript
+  (setq javascript-indent-level n) ; javascript-mode
+  (setq js-indent-level n) ; js-mode
+  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq css-indent-offset n) ; css-mode
+  )
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -296,6 +310,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (indent-setup 4);
   )
 
 (defun dotspacemacs/user-config ()
@@ -306,6 +321,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (global-linum-mode) ; Show line numbers by default
+  (setq indent-tabs-mode nil);
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
