@@ -39,6 +39,7 @@ values."
      helm
      ;; auto-completion
      ;; better-defaults
+     ranger
      emacs-lisp
      git
      markdown
